@@ -14,6 +14,20 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
+  /*
+    ES5 방식
+    var my_cmp = {
+      template: '<div>my component</div>'
+    };
+
+    new Vue({
+      el: '',
+      components: {
+        'my-cmp': my_cmp
+      }
+    });
+    
+  */
   components: {
     //ES6방식
     // 컴포넌트 태그명 : 컴포넌트 내용
