@@ -1,6 +1,6 @@
 <template>
   <div class="inputBox shadow">
-    <input tpye="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
+    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
     <!-- <button v-on:click="addTodo">Add</button> -->
     <span class="addContainer" v-on:click="addTodo">
         <i class="fas fa-plus addBtn"></i>
@@ -12,7 +12,7 @@
 export default {
     data: function() {
         return {
-            newTodoItem:''
+            newTodoItem: ""
         }
     },
     methods: {
