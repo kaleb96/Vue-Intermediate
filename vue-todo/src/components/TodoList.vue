@@ -4,7 +4,8 @@
             ul>li*3 ul 태그 안에 li태그 3개를 만듬
         -->
         <ul>
-            <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item" class="shadow">
+            <!-- todoItems에서 todoitem 만큼 반복한다 -->
+            <li v-for="(todoItem, index) in todoItems" :key="todoItem.item" class="shadow">
                 <i class="checkBtn fa-sharp fa-solid fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"
                 v-on:click="toggleComplete(todoItem, index)"></i>
                 <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
