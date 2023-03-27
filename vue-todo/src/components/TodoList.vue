@@ -9,6 +9,7 @@
                 <i class="checkBtn fa-sharp fa-solid fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"
                 v-on:click="toggleComplete(todoItem, index)"></i>
                 <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
+                <!-- v-bind를 통해 textCompleted의 값에 따른 todoItem.item값의 textCompleted 스타일링이 출력됨 -->
                 <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
                     <i class="fa-solid fa-trash-can"></i>
                 </span>
@@ -49,7 +50,8 @@ export default {
                     // this.todoItems.push(localStorage.key(i)); 키의 값 넣기
                     // localStorage.getItem(localStorage.key(i)); localStorage의 value 값 받기
                     // console.log(JSON.parse(localStorage.getItem(localStorage.key(i)))); localStorage 값 확인
-                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i)))); //Object인 localStorage값을 todoItems에 넣어주기
+                    
                 }
             }
         }
