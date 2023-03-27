@@ -5,7 +5,7 @@
         -->
         <ul>
             <!-- todoItems에서 todoitem 만큼 반복한다 -->
-            <li v-for="(todoItem, index) in todoItems" :key="todoItem.item" class="shadow">
+            <li v-for="(todoItem, index) in propsdata" :key="todoItem.item" class="shadow">
                 <i class="checkBtn fa-sharp fa-solid fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"
                 v-on:click="toggleComplete(todoItem, index)"></i> <!-- todoItem.completed의 값에 따라 checkBtnCompleted의 클래스가 추가/가려짐-->
                 <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
@@ -20,42 +20,46 @@
 
 <script>
 export default {
-    data : function() {
-        return {
-            todoItems: []
-        }
-    },
+    props: [ 'propsdata'] ,
+    // App.vue 로 이동
+    // data : function() {
+    //     return {
+    //         todoItems: []
+    //     }
+    // },
     methods: {
         removeTodo: function(todoItem, index) {
-            console.log(todoItem, index);
-            localStorage.removeItem(todoItem);
-            this.todoItems.splice(index, 1);
+            // console.log(todoItem, index);
+            // localStorage.removeItem(todoItem);
+            // this.todoItems.splice(index, 1);
+            this.$emit('removeItem', todoItem, index);
         },
 
         toggleComplete: function(todoItem, index) {
-            console.log(todoItem, index);
-            todoItem.completed = !todoItem.completed;
-            localStorage.removeItem(todoItem.item);
-            localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+            // console.log(todoItem, index);
+            // todoItem.completed = !todoItem.completed;
+            // localStorage.removeItem(todoItem.item);
+            // localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+            this.$emit('toggleItem', todoItem, index);
         }
     },
+    // App.vue 로 이동
+    // created : function() {
+    //     //localStorage의 데이터를 담기
+    //     if(localStorage.length > 0) {
 
-    created : function() {
-        //localStorage의 데이터를 담기
-        if(localStorage.length > 0) {
-
-            for(var i = 0; i < localStorage.length; i++) {
-                if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+    //         for(var i = 0; i < localStorage.length; i++) {
+    //             if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
                    
-                    // this.todoItems.push(localStorage.key(i)); 키의 값 넣기
-                    // localStorage.getItem(localStorage.key(i)); localStorage의 value 값 받기
-                    // console.log(JSON.parse(localStorage.getItem(localStorage.key(i)))); localStorage 값 확인
-                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i)))); //Object인 localStorage값을 todoItems에 넣어주기
+    //                 // this.todoItems.push(localStorage.key(i)); 키의 값 넣기
+    //                 // localStorage.getItem(localStorage.key(i)); localStorage의 value 값 받기
+    //                 // console.log(JSON.parse(localStorage.getItem(localStorage.key(i)))); localStorage 값 확인
+    //                 this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i)))); //Object인 localStorage값을 todoItems에 넣어주기
                     
-                }
-            }
-        }
-    },
+    //             }
+    //         }
+    //     }
+    // },
 
 
 }
