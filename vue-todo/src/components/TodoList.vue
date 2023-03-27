@@ -7,9 +7,9 @@
             <!-- todoItems에서 todoitem 만큼 반복한다 -->
             <li v-for="(todoItem, index) in todoItems" :key="todoItem.item" class="shadow">
                 <i class="checkBtn fa-sharp fa-solid fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"
-                v-on:click="toggleComplete(todoItem, index)"></i>
+                v-on:click="toggleComplete(todoItem, index)"></i> <!-- todoItem.completed의 값에 따라 checkBtnCompleted의 클래스가 추가/가려짐-->
                 <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-                <!-- v-bind를 통해 textCompleted의 값에 따른 todoItem.item값의 textCompleted 스타일링이 출력됨 -->
+                <!-- v-bind를 통해 todoItem.completed값의 따라textCompleted 스타일링이 출력/가려짐-->
                 <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
                     <i class="fa-solid fa-trash-can"></i>
                 </span>
