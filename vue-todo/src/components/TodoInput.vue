@@ -18,12 +18,14 @@ export default {
     methods: {
         addTodo: function() {
             // console.log(this.newTodoItem);
-            //localStorage.setItem(); 저장하는 로직    
-            var obj = {completed: false, item: this.newTodoItem};
+            //localStorage.setItem(); 저장하는 로직   
+            if(this.newTodoItem !== '') {
+                var obj = {completed: false, item: this.newTodoItem};
+                localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+                //콘솔의 애플리케이션에서 로컬스토리지 > 에서 저장된 값을 확인 할 수 있음
+                this.clearInput();
+            }
 
-            localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
-            //콘솔의 애플리케이션에서 로컬스토리지 > 에서 저장된 값을 확인 할 수 있음
-            this.clearInput();
         },
         
         // call back 함수
