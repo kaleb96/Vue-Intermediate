@@ -5,7 +5,7 @@
     <TodoList v-bind:propsdata="todoItems" 
         v-on:removeItem="removeOneItem" 
         v-on:toggleItem="toggleOneItem"></TodoList>
-    <TodoFooter/>
+    <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
   </div>
 </template>
 
@@ -60,7 +60,6 @@ export default {
   methods: {
 
     addOneItem: function(todoItem) {
-      this.newTodoItem = '';
       var obj = {completed: false, item: todoItem};
                 localStorage.setItem(todoItem, JSON.stringify(obj));
                 //콘솔의 애플리케이션에서 로컬스토리지 > 에서 저장된 값을 확인 할 수 있음
@@ -78,6 +77,11 @@ export default {
             localStorage.removeItem(todoItem.item);
             localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
+
+    clearAllItems: function() {
+      localStorage.clear();
+      this.todoItems = [];
+    }
   }
 }
 </script>
