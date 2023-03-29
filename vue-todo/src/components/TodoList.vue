@@ -3,7 +3,8 @@
         <!-- ul 단축키
             ul>li*3 ul 태그 안에 li태그 3개를 만듬
         -->
-        <ul>
+        <!-- <ul> -->
+        <transition-group name="list" tag="ul">
             <!-- todoItems에서 todoitem 만큼 반복한다 -->
             <li v-for="(todoItem, index) in propsdata" :key="todoItem.item" class="shadow">
                 <i class="checkBtn fa-sharp fa-solid fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"
@@ -14,13 +15,14 @@
                     <i class="fa-solid fa-trash-can"></i>
                 </span>
             </li>
-        </ul>
+        </transition-group>
+        <!-- </ul> -->
     </div>
 </template>
 
 <script>
 export default {
-    props: [ 'propsdata'] ,
+    props: [ 'propsdata'],
     // App.vue 로 이동
     // data : function() {
     //     return {
@@ -42,7 +44,7 @@ export default {
             // localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
             this.$emit('toggleItem', todoItem, index);
         }
-    },
+    }
     // App.vue 로 이동
     // created : function() {
     //     //localStorage의 데이터를 담기
@@ -60,8 +62,6 @@ export default {
     //         }
     //     }
     // },
-
-
 }
 </script>
 
@@ -102,6 +102,18 @@ export default {
     .removeBtn {
         margin-left: auto;
         color: #de4343;
+    }
+    /* 리스트 아이템 트랜지션 효과 */
+    .list-item {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .list-enter-active, .list-leave-active {
+        transition: all 1s;
+    }
+    .list-enter, .list-leave-to {
+        opacity: 0;
+        transform: translateY(30px);
     }
 </style>
 
