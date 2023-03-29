@@ -16,6 +16,19 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
+  created : function() {
+        //localStorage의 데이터를 담기
+        if(localStorage.length > 0) {
+
+            for(var i = 0; i < localStorage.length; i++) {
+                if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i)))); //Object인 localStorage값을 todoItems에 넣어주기
+                    
+                }
+            }
+        }
+    },
+
   data: function() {
     return {
       todoItems: []
@@ -33,21 +46,7 @@ export default {
         'my-cmp': my_cmp
       }
     });
-    
   */
-  created : function() {
-        //localStorage의 데이터를 담기
-        if(localStorage.length > 0) {
-
-            for(var i = 0; i < localStorage.length; i++) {
-                if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i)))); //Object인 localStorage값을 todoItems에 넣어주기
-                    
-                }
-            }
-        }
-    },
-  
   components: {
     //ES6방식
     // 컴포넌트 태그명 : 컴포넌트 내용
