@@ -6,7 +6,7 @@
         <!-- <ul> -->
         <transition-group name="list" tag="ul">
             <!-- todoItems에서 todoitem 만큼 반복한다 -->
-            <li v-for="(todoItem, index) in propsdata" :key="todoItem.item" class="shadow">
+            <li v-for="(todoItem, index) in this.$store.state.todoItems" :key="todoItem.item" class="shadow">
                 <i class="checkBtn fa-sharp fa-solid fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"
                 v-on:click="toggleComplete(todoItem, index)"></i> <!-- todoItem.completed의 값에 따라 checkBtnCompleted의 클래스가 추가/가려짐-->
                 <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
