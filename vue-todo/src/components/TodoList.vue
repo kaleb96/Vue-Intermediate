@@ -23,10 +23,12 @@ export default {
         ...mapMutations({
             removeTodo: 'removeOneItem',
             toggleComplete: 'toggleOneItem'
-        }),
+        })
     },
     computed: {
-        ...mapGetters(['storedTodoItems'])
+        ...mapGetters({
+            storedTodoItems: 'getTodoItems'
+        })
     }
 }
 </script>
