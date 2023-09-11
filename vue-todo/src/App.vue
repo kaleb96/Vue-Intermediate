@@ -14,15 +14,12 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
-
   components: {
-    //ES6방식
-    // 컴포넌트 태그명 : 컴포넌트 내용
-    'TodoHeader' : TodoHeader,
-    'TodoInput' : TodoInput,
-    'TodoList' : TodoList,
-    'TodoFooter' : TodoFooter
-  },
+    TodoHeader,
+    TodoInput,
+    TodoList,
+    TodoFooter
+  }
 }
 </script>
 

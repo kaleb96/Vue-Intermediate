@@ -1,21 +1,13 @@
-
 import Vue from 'vue' 
 import Vuex from 'vuex'
-import todoApp from './modules/todoApp'
+import todo from './modules/todo'
 // import * as getters from './getters'
 // import * as mutations from './mutations'
 
-Vue.use(Vuex); 
+Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-    moduels: {
-        todoApp
+    modules: {
+        todo
     }
-    // state: {
-    //     // headerText: 'TODO it!',
-    //     todoItems: storage.fetch()
-    // },
-    // getters,
-    // mutations
-
 });
