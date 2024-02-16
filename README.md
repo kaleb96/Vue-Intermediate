@@ -2,7 +2,7 @@
 --- 
 Vue.js 중급강좌 - 웹앱 제작으로 배워보는 Vue.js, ES6, Vuex 프로젝트 입니다.
 
-### 🖥️ About Project...
+### 📝 About Project...
 <div style="display:flex">
 <img width="300" height="400" src="https://github.com/kaleb96/Vue-Intermediate/blob/main/vue-todo/vue-intermediate%20todo.png"> 
 <img width="500" height="400" src="https://github.com/kaleb96/Vue-Intermediate/blob/main/vue-todo/vue-intermediate%20todo_architecture.png">
@@ -29,8 +29,6 @@ Vue.js 중급강좌 - 웹앱 제작으로 배워보는 Vue.js, ES6, Vuex 프로�
 - Vue 2.6.11
 - Vuex : 3.0.1
 - IDE : Visual Studio Code
----
-### 📝 Project architecture...
 ---
 
 
